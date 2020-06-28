@@ -17,16 +17,21 @@ def formatter(DICT):
 
 def formatter_column(DICT):
     LIST = []
-    for key,value in DICT.items():
-        # list[list[element]]
-        data = [value["ชื่อ"],value["ราคา"],value["จำนวนที่เหลืออยู่"]]
-        LIST.append(data)
+    if isinstance(DICT,dict):
+        for key,value in DICT.items():
+            # list[list[element]]
+            data = [value["ชื่อ"],value["ราคา"],value["จำนวนที่เหลืออยู่"]]
+            LIST.append(data)
+        return LIST
     
+    else:
+        data = ["ชื่อ","ราคา","จำนวนที่เหลืออยู่"]
+        LIST.append(data)
+        return LIST
     # a = [li[0] for li in LIST]
     # b = [li[1] for li in LIST]
     # c = [li[2] for li in LIST]
     
-    return LIST
 
 def process_product(command):
     คำสั่ง = command
